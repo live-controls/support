@@ -10,4 +10,9 @@ trait HasSupport{
     {
         return $this->hasMany(SupportTicket::class, 'user_id');
     }
+
+    public function openSupportTickets(): HasMany
+    {
+        return $this->hasMany(SupportTicket::class, 'user_id')->where('open', '=', true);
+    }
 }
