@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('livecontrols_support_tickets', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users', 'id')->cascadeOnDelete();
             $table->string('title');
             $table->unsignedTinyInteger('priority');
             $table->longText('content');
+            $table->boolean('open')->default(true);
             $table->timestamps();
         });
     }
