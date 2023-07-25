@@ -15,4 +15,24 @@ trait HasSupport{
     {
         return $this->hasMany(SupportTicket::class, 'user_id')->where('open', '=', true);
     }
+
+    public function isSupportMember(): bool
+    {
+        
+        if(in_array(auth()->id(), config('livecontrols_support.support_users',[])))
+        {
+            return true;
+        }
+
+        if(class_exists('\LiveControls\Groups\GroupsServiceProvider', false)){
+            foreach($this->groups as $group)
+            {
+                if(in_array($group->key, config('livecontrols_support.support_groups', []))){
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 }
