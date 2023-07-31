@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->unsignedTinyInteger('priority');
             $table->longText('content');
-            $table->unsignedTinyInteger('status');
+            $table->unsignedTinyInteger('status')->default(0);
             $table->boolean('open')->default(true);
             $table->timestamps();
         });
