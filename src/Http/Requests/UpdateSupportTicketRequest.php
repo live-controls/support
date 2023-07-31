@@ -26,7 +26,9 @@ class UpdateSupportTicketRequest extends FormRequest
         return [
             'title' => 'required|string|min:3|max:255',
             'priority' => 'required|integer|max:255',
-            'content' => 'required|string'
+            'content' => 'required|string',
+            'status' => 'required|integer',
+            'open' => 'required|boolean'
         ];
     }
 }

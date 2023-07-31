@@ -17,6 +17,8 @@ class SupportTicket extends Model{
         'title',
         'priority',
         'content',
+        'status',
+        'open',
         'user_id'
     ];
 
