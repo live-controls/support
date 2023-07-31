@@ -16,7 +16,7 @@ trait HasSupport{
         return $this->hasMany(SupportTicket::class, 'user_id')->where('open', '=', true);
     }
 
-    public function isSupportMember(): bool
+    public function getSupportMemberAttribute(): bool
     {
         
         if(in_array(auth()->id(), config('livecontrols_support.support_users',[])))
