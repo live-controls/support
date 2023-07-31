@@ -21,7 +21,8 @@ class SupportServiceProvider extends ServiceProvider
     $this->loadMigrationsFrom($migrationPaths);
     $this->loadViewsFrom(__DIR__.'/../resources/views', 'livecontrols_support');
     $this->loadTranslationsFrom(__DIR__.'/../lang', 'livecontrols');
-
+    $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+    
     if ($this->app->runningInConsole())
     {
       $this->publishes([
